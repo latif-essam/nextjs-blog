@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import StoreProvider from "@/components/StoreProvider";
 import NavBar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,13 +17,14 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body className={` antialiased`}>
-          <header>
+        <body className="antialiased w-full overflow-x-hidden flex flex-col min-h-screen bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">
+          <header className="w-full fixed top-0 left-0 right-0 bg-white shadow-md z-50">
             <NavBar />
           </header>
-          <main className="max-w-[1080px] text-center mx-6 px-5">
+          <main className="flex-grow w-full lg:max-w-[1080px]  mx-auto px-6 pt-[100px] pb-6 ">
             {children}
           </main>
+          <Footer />
         </body>
       </html>
     </StoreProvider>

@@ -6,10 +6,10 @@ import {
   editPost,
   deletePost,
 } from "../actions/postsActions";
-import { RootState } from "..";
 let postId = 101;
 interface PostsState {
   list: Post[];
+  booked: string[];
   status: "idle" | "loading" | "failed";
   error: string | null;
   page: number;
@@ -21,6 +21,7 @@ const initialState: PostsState = {
   error: null,
   page: 1,
   totalPages: 10,
+  booked: [],
 };
 console.log({ postId });
 const postsSlice = createSlice({
@@ -34,6 +35,16 @@ const postsSlice = createSlice({
     deleteAllPosts: (state) => {
       state.list = [];
       state.page = 1;
+    },
+
+    toggleBooked: (state, action: PayloadAction<string>) => {
+      const index = state.booked.findIndex((i) => i === action.payload);
+      console.log({ index });
+      if (index === -1) {
+        state.booked.push(action.payload);
+      } else {
+        state.booked = state.booked.filter((b) => b !== action.payload);
+      }
     },
   },
   extraReducers: (builder) => {
@@ -125,10 +136,10 @@ const postsSlice = createSlice({
       });
   },
 });
-export const { deleteAllPosts } = postsSlice.actions;
+export const { deleteAllPosts, toggleBooked } = postsSlice.actions;
 
 export default postsSlice.reducer;
 
 // selectors
-export const selectPostById = (state: RootState, postId: string) =>
-  state.posts.list.find((post) => post.id.toString() === postId);
+export const selectPostById = (list: Post[], postId: string) =>
+  list.find((post) => post.id.toString() === postId);

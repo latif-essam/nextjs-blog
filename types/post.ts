@@ -4,3 +4,12 @@ export interface Post {
   title: string;
   body: string;
 }
+
+// comments
+export interface Comment {
+  body: string;
+  email: string;
+  id: number;
+  name: string;
+  postId: number;
+}
