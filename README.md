@@ -1,132 +1,103 @@
-# Next.js Blog - Best Practice Implementation
+# Next.js Blog
 
-## Objective:
+Welcome to the Next.js Blog project. This application showcases a modern blog platform built with the latest features of Next.js 14, TypeScript, and Redux. The blog includes functionalities such as viewing recent posts, searching for posts, viewing post details with comments, and bookmarking posts.
 
-This Next.js app interacts with the [JSONPlaceholder API](https://jsonplaceholder.typicode.com) to display, manage, and interact with posts.
+## Screenshots
 
-### Pages and Functionality:
+| Homepage (Desktop)                              | Homepage (iPad)                              | Homepage (Phone)                              |
+| ----------------------------------------------- | -------------------------------------------- | --------------------------------------------- |
+| ![Homepage Desktop](./assets/shots/home-lg.png) | ![Homepage iPad](./assets/shots/home-md.png) | ![Homepage Phone](./assets/shots/home-sm.png) |
 
-1. **Post List Page**:
+## Project Details
 
-   - Fetches and displays a list of posts.
-   - Each post shows the title and body.
-   - Includes a "View Details" button that navigates to the Post Details page.
-   - Handles loading states and errors during fetching.
+### Technologies Used
 
-2. **Add Post Page**:
+- **Next.js 14**: Utilized the new App Router for server components and improved data fetching.
+- **TypeScript**: Ensured type safety throughout the application.
+- **Redux**: Managed application state for posts and bookmarks.
 
-   - Allows the user to add a new post by filling out title and body fields.
-   - Validates inputs to ensure fields are not empty.
-   - After submission, the new post is added to the post list.
+### Pages Implemented
 
-3. **Post Details Page**:
+- **Home Page**
+  - Displays recent posts with a visually appealing gradient background.
+  - Features a header image with a welcoming title.
+- **Posts Page**
 
-   - Displays full details of a selected post (title, body, and user ID).
-   - Includes "Edit" and "Delete" buttons.
-   - "Edit" button navigates to the Edit Post page.
-   - "Delete" button removes the post from the list and navigates back to the Post List page.
+  - Allows searching for posts by title.
+  - Lists all posts with an interactive search functionality.
 
-4. **Edit Post Page**:
-   - Pre-fills a form with the current post details.
-   - Allows the user to update the title and body fields.
-   - Validates the form and saves the changes.
+- **Post Details Page**
 
-### Navigation:
+  - Shows the details of a selected post.
+  - Displays comments associated with the post.
 
-- Utilizes **Next.js Link** for smooth page transitions.
+- **Bookmarked Posts Page**
+  - Lists all posts that the user has bookmarked.
+  - Displays a message and call-to-action if no posts are bookmarked.
 
-### State Management:
+### Features
 
-- **Redux** is used to handle global state for managing the post list and its actions.
+- **Responsive Design**
 
-### Styling:
+  - The application is fully responsive, with layouts optimized for desktop, tablet, and mobile devices.
 
-- Ensures a responsive and consistent UI across all pages, utilizing **Styled Components** and **CSS modules**.
+- **Bookmarks**
 
----
+  - Users can bookmark their favorite posts, which are saved in the Redux store.
+  - The BookmarkIcon component allows toggling bookmarks with visual feedback.
 
-## Screenshots:
+- **Navigation**
+  - A responsive navigation bar that highlights the current route.
+  - Includes links to the Home, All Posts, and a profile section.
 
-### Table: Screenshots of the app on different devices for Dark & Light Themes
+### Installation and Setup
 
-| Page                         | Desktop                                                                      | Mobile                                                                     |
-| ---------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **Home**                     | ![Post List on Desktop](./assets/shots/home-desktop.jpg)                     | ![Post List on Mobile](./assets/shots/home-mobile.jpg)                     |
-| **Post Details**             | ![Post Details on Desktop](./assets/shots/details-desktop.jpg)               | ![Post Details on Mobile](./assets/shots/details-mobile.jpg)               |
-| **Add Post**                 | ![Add Post on Desktop](./assets/shots/new_post-desktop.jpg)                  | ![Add Post on Mobile](./assets/shots/new_post-mobile.jpg)                  |
-| **Edit Post**                | ![Edit Post on Desktop](./assets/shots/update_post-desktop.jpg)              | ![Edit Post on Mobile](./assets/shots/update_post-mobile.jpg)              |
-| **Delete Post Confirmation** | ![Delete Confirmation on Desktop](./assets/shots/confirm_delete-desktop.jpg) | ![Delete Confirmation on Mobile](./assets/shots/confirm_delete-mobile.jpg) |
-| **Settings**                 | ![Settings on Desktop](./assets/shots/settings-desktop.jpg)                  | ![Settings on Mobile](./assets/shots/settings-mobile.jpg)                  |
-| **Search**                   | ![Search on Desktop](./assets/shots/search-desktop.jpg)                      | ![Search on Mobile](./assets/shots/search-mobile.jpg)                      |
-
-## Setup Instructions:
-
-### Prerequisites:
-
-Make sure you have the following software installed on your computer:
-
-- **Node.js**: [Download Node.js](https://nodejs.org/)
-- **Visual Studio Code or any preferred IDE**: [VS Code](https://code.visualstudio.com/)
-
-### Steps to Run the App:
-
-1. **Clone the repository**:
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/latif-essam/nextjs_blog.git
-   cd nextjs_blog
+   git clone https://github.com/your-username/nextjs-blog.git
+
    ```
 
-2. **Install dependencies**:
+2. Navigate to the project directory:
+
+   ```bash
+   cd nextjs-blog
+   ```
+
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. **Run the app**:
+4. Start the development server:
 
    ```bash
    npm run dev
    ```
 
-4. **Open your browser and navigate to**:
+5. Open your browser and visit `http://localhost:3000` to see the application in action.
 
-   ```
-   http://localhost:3000
-   ```
+### Future Enhancements
 
-### Running on Different Browsers and Devices:
+- Add user authentication.
+- Implement pagination for posts.
+- Enhance the UI with more animations and interactive elements.
 
-- Make sure your development environment supports multiple browsers to ensure cross-browser compatibility.
-- You can use browser developer tools to emulate different devices for testing responsiveness.
+## Contributions
 
----
+Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or bug fixes.
 
-## Technologies Used:
+## License
 
-- **[Next.js](https://nextjs.org/)**: A React framework for building fast, user-friendly web applications.
-- **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces.
-- **[Redux](https://redux.js.org/)**: A predictable state container for JavaScript apps, used for managing the app's global state.
-- **[Axios](https://axios-http.com/)**: A promise-based HTTP client for making requests to the JSONPlaceholder API and handling responses.
-- **[Tailwindcss](https://tailwindcss.com/)**: A library for writing CSS-in-JS, allowing for modular and scoped styling.
-- **[Next.js Link](https://nextjs.org/docs/api-reference/next/link)**: A component for client-side navigation.
+This project is licensed under the MIT License.
 
----
+## Contact
 
-## Bonus Features Implemented:
+Developed by Latif Essam.
 
-- **Theme Toggle**: Allows users to toggle between light and dark themes.
-- **About Page**: Contains my contact information and personal details.
-- **Optimistic UI Updates**: Implemented for adding/editing/deleting posts.
-- **Pagination**: Posts are paginated and load more as you scroll.
-- **Search**: Users can search for posts by title.
-
----
-
-## Conclusion:
-
-This app demonstrates my ability to handle state management, implement RESTful APIs, and create a user-friendly interface using Next.js. I have also implemented additional features like a theme toggle and an About section to showcase my skills in web development.
-
----
-
-**Thank you for reviewing my project. I look forward to the opportunity to work together.**
+- **Email**: [latif_essam@outlook.com](mailto:latif_essam@outlook.com)
+- **Portfolio**: [Latif's Portfolio](https://portfolio-latifessams-projects.vercel.app/)
+- **LinkedIn**: [Latif Essam](https://linkedin.com/in/latifessam)
+- **Facebook**: [Latif Essam](https://www.facebook.com/LatifEssam/)
