@@ -5,7 +5,6 @@ import { useAppSelector } from "@/store";
 import { selectPostById } from "@/store/reducers/posts";
 import { Comment } from "@/types/post";
 import { capitalizeFirstLetter } from "@/utils/helpers";
-import { Icon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
